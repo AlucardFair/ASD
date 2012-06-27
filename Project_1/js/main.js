@@ -342,9 +342,9 @@ $(document).ready(function() {
 	// submitData.addEventListener("click", validate);
 
 	// New Methods //
-	$('#showData').bind("click", getData);
-	$('#clearData').bind("click", clearData);
-	$('#saveData').bind("click", validate);
+	$('#showData').on("click", getData);
+	$('#clearData').on("click", clearData);
+	$('#saveData').on("click", validate);
 	
 	// Call Functions //
 //	makeWorkoutStyle(); //
