@@ -1,10 +1,10 @@
 /*
 Zachery Hernandez
-VFW 1205
-Project 4
-5/24/2012
+ASD 1206
+Project 1
+6/29/2012
 Body Health & Fitness
-https://github.com/AlucardFair/MiU-Project-4
+https://github.com/AlucardFair/ASD/Project_1
 */
 
 /*Dummy Data*/
