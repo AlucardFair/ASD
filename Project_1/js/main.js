@@ -63,23 +63,23 @@ $(document).ready(function() {
 	function toggle(x) {
 		switch(x) {
 			case "on":
-				ge('workoutForm').style.display = "none";
-				ge('showData').style.display = "none";
-				ge('clearData').style.display = "none";
-				ge('startNew').style.display = "none";
-				ge('saveData').style.display = "none";
-				ge('addBack').style.display = "none";
-				ge('foot').style.display = "none";
+				$('#workoutForm').css("display", "none");
+				$('#showData').css("display", "none");
+				$('#clearData').css("display", "none");
+				$('#startNew').css("display", "none");
+				$('#saveData').css("display", "none");
+				$('#addBack').css("display", "none");
+				$('#foot').css("display", "none");
 				break;
 			case "off":
-				ge('workoutForm').style.display = "block";
-				ge('showData').style.display = "inline";
-				ge('clearData').style.display = "inline";
-				ge('startNew').style.display = "none";
-				ge('saveData').style.display = "inline";
-				ge('addBack').style.display = "inline";
-				ge('foot').style.display = "block";
-				ge('items').style.display = "none";
+				$('#workoutForm').css("display", "block");
+				$('#showData').css("display", "inline");
+				$('#clearData').css("display", "inline");
+				$('#startNew').css("display", "none");
+				$('#saveData').css("display", "inline");
+				$('#addBack').css("display", "inline");
+				$('#foot').css("display", "block");
+				$('#items').css("display", "none");
 				break;
 			default:
 				return false;
