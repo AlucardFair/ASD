@@ -8,6 +8,15 @@ https://github.com/AlucardFair/ASD/Project_1
 */
 // jQM Form Handler //
 $(document).ready(function() {
+
+	// Variable defaults //
+	var favoriteValue = "No",
+		wfForm = $('#workoutForm'),
+		//workoutTypes = ["*Choose A Style*", "Agility", "Cardio", "Flexibility", "Strength", "Tone"],
+		timeValue,
+		confirmClear
+		//errMsg = ge('errors')
+	;
 	
 	// getElementById function //
 	function ge(x) {
@@ -322,16 +331,6 @@ $(document).ready(function() {
 			}
 		})
 	};
-
-	
-	// Variable defaults //
-	var favoriteValue = "No",
-		wfForm = $('#workoutForm'),
-		//workoutTypes = ["*Choose A Style*", "Agility", "Cardio", "Flexibility", "Strength", "Tone"],
-		timeValue,
-		confirmClear
-		//errMsg = ge('errors')
-	;
 	
 	// Set Link & Submit Click Events // // Old Methods //
 	// var displayLink = ge('showData');
