@@ -333,13 +333,18 @@ $(document).ready(function() {
 		//errMsg = ge('errors')
 	;
 	
-	// Set Link & Submit Click Events //
-	var displayLink = ge('showData');
-	displayLink.addEventListener("click", getData);
-	var clearButton = ge('clearData');
-	clearButton.addEventListener("click", clearData);
-	var submitData = ge('saveData');
-	submitData.addEventListener("click", validate);
+	// Set Link & Submit Click Events // // Old Methods //
+	// var displayLink = ge('showData');
+	// displayLink.addEventListener("click", getData);
+	// var clearButton = ge('clearData');
+	// clearButton.addEventListener("click", clearData);
+	// var submitData = ge('saveData');
+	// submitData.addEventListener("click", validate);
+
+	// New Methods //
+	$('#showData').bind("click", getData);
+	$('#clearData').bind("click", clearData);
+	$('#saveData').bind("click", validate);
 	
 	// Call Functions //
 //	makeWorkoutStyle(); //
