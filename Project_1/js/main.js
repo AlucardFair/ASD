@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 	// Variable defaults //
 	var favoriteValue = "No",
-		wfForm = $('#workoutForm'),
+		// wfForm = $('#workoutForm'),
 		//workoutTypes = ["*Choose A Style*", "Agility", "Cardio", "Flexibility", "Strength", "Tone"],
 		timeValue,
 		confirmClear
@@ -322,7 +322,7 @@ $(document).ready(function() {
 	};*/
 
 	function validate() {
-		wfForm.validate({
+		$('#workoutForm').validate({
 			invalidHandler: function(form, validator) {
 				alert("There are required fields left empty.")
 			},
