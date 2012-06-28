@@ -19,10 +19,10 @@ $(document).ready(function() {
 	;
 	
 	// getElementById function //
-	function ge(x) {
-		var elementID = document.getElementById(x);
-		return elementID;
-	};
+	// function ge(x) {
+	// 	var elementID = document.getElementById(x);
+	// 	return elementID;
+	// };
 	
 	// Create Select Element with Options//
 /*	function makeWorkoutStyle() {
@@ -42,7 +42,7 @@ $(document).ready(function() {
 	
 	// //
 	function getCheckboxValue() {
-		if (ge('favorite').checked) {
+		if ($('#favorite').checked) {
 			favoriteValue = "Yes";
 		}else{
 			favoriteValue = "No";
@@ -98,13 +98,13 @@ $(document).ready(function() {
 		getCheckboxValue();
 		getSelectedRadio();
 		var item 				= {};
-			item.training 		= ["Training Style: ", ge('training').value];
-			item.wname			= ["Workout Name: ", ge('wname').value];
+			item.training 		= ["Training Style: ", $('#training').value];
+			item.wname			= ["Workout Name: ", $('#wname').value];
 			item.favorite		= ["Favorite: ", favoriteValue];
-			item.howlong		= ["How Long: ", ge('howlong').value + " minutes"];
+			item.howlong		= ["How Long: ", $('#howlong').value + " minutes"];
 			item.timeofday		= ["Preferred Time: ", timeValue];
-			item.completiondate	= ["Completion Date: ", ge('completiondate').value];
-			item.comments		= ["Self-Motivation: ", ge('comments').value];
+			item.completiondate	= ["Completion Date: ", $('#completiondate').value];
+			item.comments		= ["Self-Motivation: ", $('#comments').value];
 			
 		// Save Data into Local Storage with JSON.stringify //
 		localStorage.setItem(id, JSON.stringify(item));
@@ -129,7 +129,7 @@ $(document).ready(function() {
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		// Set 'items' display //
-		ge('items').style.display = "block";
+		$('#items').css("display", "block");
 		for(var i=0, j=localStorage.length; i<j; i++) {
 			var makeLi = document.createElement('li');
 			makeLi.style.fontSize = "25px";
@@ -205,12 +205,12 @@ $(document).ready(function() {
 		// Turn form back on //
 		toggle("off");
 		// Populate form fields //
-		ge('training').value = item.training[1];
-		ge('wname').value = item.wname[1];
+		$('#training').value = item.training[1];
+		$('#wname').value = item.wname[1];
 		if(item.favorite[1] == "Yes") {
-			ge('favorite').setAttribute("checked", "checked");
+			$('#favorite').setAttribute("checked", "checked");
 		}
-		ge('howlong').value = item.howlong[1];
+		$('#howlong').value = item.howlong[1];
 		var radios = document.forms[0].timeofday;
 		for (var i=0, j=radios.length; i<j; i++) {
 			if(radios[i].value == "Morning" && item.timeofday[1] == "Morning") {
@@ -221,13 +221,13 @@ $(document).ready(function() {
 				radios[i].setAttribute("checked", "checked");
 			}
 		}
-		ge('completiondate').value = item.completiondate[1];
-		ge('comments').value = item.comments[1];
+		$('#completiondate').value = item.completiondate[1];
+		$('#comments').value = item.comments[1];
 		// Remove event listener for 'save' button //
 		submitData.removeEventListener("click", saveData);
 		// Change submit button value from Save Workout to Save Changes //
-		ge('saveData').value = "Save Changes";
-		var editSubmit = ge('saveData');
+		$('#saveData').value = "Save Changes";
+		var editSubmit = $('#saveData');
 		// Save to original key value established for particular values //
 		editSubmit.addEventListener("click", validate);
 		editSubmit.key = key;
