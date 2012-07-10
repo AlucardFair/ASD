@@ -65,19 +65,19 @@ $(document).ready(function() {
 			case "on":
 				$('#workoutForm').css("display", "none");
 				$('#showData').css("display", "none");
-				$('#clearData').css("display", "none");
-				$('#startNew').css("display", "none");
-				$('#saveData').css("display", "none");
-				$('#addBack').css("display", "none");
-				$('#foot').css("display", "none");
+				// $('#clearData').css("display", "none");
+				// $('#startNew').css("display", "inline");
+				// $('#saveData').css("display", "none");
+				// $('#addBack').css("display", "none");
+				// $('#foot').css("display", "none");
 				break;
 			case "off":
 				$('#workoutForm').css("display", "block");
-				$('#showData').css("display", "inline");
-				$('#clearData').css("display", "inline");
-				$('#startNew').css("display", "none");
+				// $('#showData').css("display", "inline");
+				// $('#clearData').css("display", "inline");
+				// $('#startNew').css("display", "none");
 				$('#saveData').css("display", "inline");
-				$('#addBack').css("display", "inline");
+				// $('#addBack').css("display", "inline");
 				$('#foot').css("display", "block");
 				$('#items').css("display", "none");
 				break;
@@ -159,7 +159,7 @@ $(document).ready(function() {
 		var imageLi = document.createElement('li');
 		makeSubList.appendChild(imageLi);
 		var newImage = document.createElement('img');
-		var setSrc = newImage.setAttribute("src", "Images/" + imgName + ".png");
+		var setSrc = newImage.setAttribute("src", "images/" + imgName + ".png");
 		newImage.style.paddingTop = "10px";
 		imageLi.appendChild(newImage);
 	};
