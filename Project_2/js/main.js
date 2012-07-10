@@ -122,12 +122,13 @@ $(document).ready(function() {
 			autoFillData();
 		}
 		// Create new page //
-		var makeDiv = document.createElement('div');
+		var makeDiv = document.getElementById('dataList');
 		makeDiv.setAttribute("id", "items");
-		makeDiv.setAttribute("data-role", "page");
+		makeDiv.setAttribute("data-role", "content");
 		var makeList = document.createElement('ul');
+		makeList.setAttribute("data-role", "listview");
 		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
+		$('#dataList').append(makeDiv);
 		// Set 'items' display //
 		$('#items').css("display", "block");
 		for(var i=0, j=localStorage.length; i<j; i++) {
