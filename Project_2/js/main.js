@@ -20,11 +20,12 @@ $(document).ready(function() {
 
 	$('#jButton').on("click", function(){
 	// Load JSON data //
+	console.log();
 		$('#dataView').empty();
 		$.ajax({
 			url: 'data/data.json',
 			type: 'GET',
-			dataType: 'json',	
+			dataType: 'json',
 			success: function(response){
 				for (var i=0, j=response.workouts.length; i<j; i++){
 					console.log(response.workouts[i]);
@@ -41,7 +42,10 @@ $(document).ready(function() {
 						'</div>'
 					).appendTo('#dataView');
 				};
-			}
+			},
+			error: function(error){
+				console.log(error);
+			} 
 		});
 	});
 	
