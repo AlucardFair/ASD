@@ -7,20 +7,12 @@ Body Health & Fitness
 https://github.com/AlucardFair/ASD/Project_1
 */
 // jQM Form Handler //
-$(document).ready(function() {
 
-	// Variable defaults //
-	var favoriteValue = "No",
-		// wfForm = $('#workoutForm'),
-		//workoutTypes = ["*Choose A Style*", "Agility", "Cardio", "Flexibility", "Strength", "Tone"],
-		timeValue,
-		confirmClear
-		//errMsg = ge('errors')
-	;
+$('#home').on('pageinit', function(){
 
+	// Load JSON Data //
 	$('#jButton').on("click", function(){
-	// Load JSON data //
-	console.log();
+	console.log('#jButton');
 		$('#dataView').empty();
 		$.ajax({
 			url: 'data/data.json',
@@ -28,11 +20,12 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(response){
 				for (var i=0, j=response.workouts.length; i<j; i++){
-					console.log(response.workouts[i]);
+					console.log(response);
 					var rw = response.workouts[i];
 					$(''+
 						'<div class="workoutData">'+
-							'<h2>'+ rw.training +'</h2>'+
+							'<h2>'+ rw.workout +'</h2>'+
+							'<p>'+ rw.training +'</p>'+
 							'<p>'+ rw.wname +'</p>'+
 							'<p>'+ rw.favorite +'</p>'+
 							'<p>'+ rw.howlong +'</p>'+
@@ -48,6 +41,39 @@ $(document).ready(function() {
 			} 
 		});
 	});
+
+	// Load XML Data //
+	$('#xButton').on("click", function(){
+	console.log('#xButton');
+		$('#dataView').empty();
+		$.ajax({
+			url: 'data/data.xml',
+			type: 'GET',
+			dataType: '',
+			success: function(){
+
+			},
+			error: function(error){
+				console.log(error);
+			}
+		});
+	});
+});
+
+// $('#addItem').on('pageinit', function(){
+
+	
+// });
+$(document).ready(function() {
+
+	// Variable defaults //
+	var favoriteValue = "No",
+		// wfForm = $('#workoutForm'),
+		//workoutTypes = ["*Choose A Style*", "Agility", "Cardio", "Flexibility", "Strength", "Tone"],
+		timeValue,
+		confirmClear
+		//errMsg = ge('errors')
+	;
 	
 	// getElementById function //
 	// function ge(x) {
@@ -156,6 +182,9 @@ $(document).ready(function() {
 		var makeDiv = document.getElementById('dataList');
 		makeDiv.setAttribute("id", "items");
 		makeDiv.setAttribute("data-role", "content");
+
+		// var makeList = $(<div id="items" data-role="content"><ul data-role="listview"></ul></div>);
+
 		var makeList = document.createElement('ul');
 		makeList.setAttribute("data-role", "listview");
 		makeDiv.appendChild(makeList);
