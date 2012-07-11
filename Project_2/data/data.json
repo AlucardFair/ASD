@@ -1,0 +1,32 @@
+/*
+Zachery Hernandez
+ASD 1207
+Project 2
+7/12/2012
+Body Health & Fitness
+https://github.com/AlucardFair/ASD/Project_2
+*/
+
+{
+    "workouts":[
+	    {	
+	    	"training": ["Training Style: ", "Cardio"],
+	        "wname": ["Workout Name: ", "Running"],
+	        "favorite": ["Favorite: ", "No"],
+	        "howlong": ["How Long: ", "30" + " minutes"],
+	        "timeofday": ["Preferred Time: ", "Morning"],
+	        "completiondate": ["Completion Date: ", "2012-4-26"],
+	        "comments": ["Self-Motivation: ", "You can do it!!!"]
+	    },
+
+	    {	
+	    	"training": ["Training Style: ", "Strength"],
+	        "wname": ["Workout Name: ", "Free Weights"],
+	        "favorite": ["Favorite: ", "Yes"],
+	        "howlong": ["How Long: ", "45" + " minutes"],
+	        "timeofday": ["Preferred Time: ", "Morning"],
+	        "completiondate": ["Completion Date: ", "2012-4-26"],
+	        "comments": ["Self-Motivation: ", "Feel the burn!"]
+	    },
+    ]
+}
