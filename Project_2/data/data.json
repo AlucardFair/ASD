@@ -1,12 +1,3 @@
-/*
-Zachery Hernandez
-ASD 1207
-Project 2
-7/12/2012
-Body Health & Fitness
-https://github.com/AlucardFair/ASD/Project_2
-*/
-
 {
     "workouts":[
 	    {	
@@ -27,6 +18,6 @@ https://github.com/AlucardFair/ASD/Project_2
 	        "timeofday": ["Preferred Time: ", "Morning"],
 	        "completiondate": ["Completion Date: ", "2012-4-26"],
 	        "comments": ["Self-Motivation: ", "Feel the burn!"]
-	    },
+	    }
     ]
 }
