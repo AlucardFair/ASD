@@ -19,8 +19,8 @@ $('#home').on('pageinit', function(){
 			type: 'GET',
 			dataType: 'json',
 			success: function(response){
+			console.log(response);
 				for (var i=0, j=response.workouts.length; i<j; i++){
-					console.log(response);
 					var rw = response.workouts[i];
 					$(''+
 						'<div class="workoutData">'+
@@ -51,6 +51,7 @@ $('#home').on('pageinit', function(){
 			type: 'GET',
 			dataType: 'xml',
 			success: function(xml){
+			console.log(xml);
 				$(xml).find('workouts').each(function(){
 					var workout = $(this).find('workout').text();
 					var training = $(this).find('training').text();
@@ -89,7 +90,26 @@ $('#home').on('pageinit', function(){
 			type: 'GET',
 			dataType: 'text',
 			success: function(text){
-				
+			console.log(text);
+				var lines = text.split("\n");
+				console.log(lines);
+				for (var lineNum = 0; lineNum < lines.length; lineNum++) {
+					var row = lines[lineNum];
+					var columns = row.split(",");
+					console.log(columns);
+					$(''+
+							'<div class="workoutData">'+
+								'<h2>'+ columns[0] +'</h2>'+
+								'<p>'+ columns[1] +'</p>'+
+								'<p>'+ columns[2] +'</p>'+
+								'<p>'+ columns[3] +'</p>'+
+								'<p>'+ columns[4] +'</p>'+
+								'<p>'+ columns[5] +'</p>'+
+								'<p>'+ columns[6] +'</p>'+
+								'<p>'+ columns[7] +'</p>'+
+							'</div>'
+						).appendTo('#dataView');
+				}
 			},
 			error: function(error){
 				console.log(error);

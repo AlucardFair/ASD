@@ -20,6 +20,39 @@
 	        "timeofday": ["Preferred Time: Morning"],
 	        "completiondate": ["Completion Date: 2012-4-26"],
 	        "comments": ["Self-Motivation: Feel the burn!"]
-	    }
+	    },
+
+	    {
+			"workout": ["JSON Workout 3"],
+			"training": ["Training Style: Agility"],
+			"wname": ["Workout Name: Squat Thrusts"],
+			"favorite": ["Favorite: Yes"],
+			"howlong": ["How Long: 10 minutes"],
+			"timeofday": ["Preferred Time: Afternoon"],
+			"completiondate": ["Completion Date: 2012-5-3"],
+			"comments": ["Self-Motivation: Feel that body burn!"]
+		},
+
+		{
+			"workout": ["JSON Workout 4"],
+			"training": ["Training Style: Flexibility"],
+			"wname": ["Workout Name: Lunges"],
+			"favorite": ["Favorite: No"],
+			"howlong": ["How Long: 10 minutes"],
+			"timeofday": ["Preferred Time: Evening"],
+			"completiondate": ["Completion Date: 2012-5-3"],
+			"comments": ["Self-Motivation: Bring it on!"]
+		},
+
+		{
+			"workout": ["JSON Workout 5"],
+			"training": ["Training Style: Cardio"],
+			"wname": ["Workout Name: Elliptical Machine"],
+			"favorite": ["Favorite: No"],
+			"howlong": ["How Long: 45 minutes"],
+			"timeofday": ["Preferred Time: Morning"],
+			"completiondate": ["Completion Date: 2012-5-3"],
+			"comments": ["Self-Motivation: Don't panic, you got this!"]
+		}
     ]
 }

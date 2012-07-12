@@ -21,4 +21,34 @@
 		<completiondate>Completion Date: 2012-4-26</completiondate>
 		<comments>Self-Motivation: Feel the burn!</comments>
 	</workouts>
+	<workouts>
+		<workout>XML Workout 3</workout>
+		<training>Training Style: Agility</training>
+		<wname>Workout Name: Squat Thrusts</wname>
+		<favorite>Favorite: Yes</favorite>
+		<howlong>How Long: 10 minutes</howlong>
+		<timeofday>Preferred Time: Afternoon</timeofday>
+		<completiondate>Completion Date: 2012-5-3</completiondate>
+		<comments>Self-Motivation: Feel that body burn!</comments>
+	</workouts>
+	<workouts>
+		<workout>XML Workout 4</workout>
+		<training>Training Style: Flexibility</training>
+		<wname>Workout Name: Lunges</wname>
+		<favorite>Favorite: No</favorite>
+		<howlong>How Long: 10 minutes</howlong>
+		<timeofday>Preferred Time: Evening</timeofday>
+		<completiondate>Completion Date: 2012-5-3</completiondate>
+		<comments>Self-Motivation: Bring it on!</comments>
+	</workouts>
+	<workouts>
+		<workout>XML Workout 5</workout>
+		<training>Training Style: Cardio</training>
+		<wname>Workout Name: Elliptical Machine</wname>
+		<favorite>Favorite: No</favorite>
+		<howlong>How Long: 45 minutes</howlong>
+		<timeofday>Preferred Time: Morning</timeofday>
+		<completiondate>Completion Date: 2012-5-3</completiondate>
+		<comments>Self-Motivation: Don't panic, you got this!</comments>
+	</workouts>
 </workoutList>
