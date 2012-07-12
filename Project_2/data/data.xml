@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<workoutList>
+	<workouts>
+		<workout>Workout 1</workout>
+		<training>Training Style: Cardio</training>
+		<wname>Workout Name: Running</wname>
+		<favorite>Favorite: No</favorite>
+		<howlong>How Long: 30 minutes</howlong>
+		<timeofday>Preferred Time: Morning</timeofday>
+		<completiondate>Completion Date: 2012-4-26</completiondate>
+		<comments>Self-Motivation: You can do it!!!</comments>
+	</workouts>
+	<workouts>
+		<workout>Workout 2</workout>
+		<training>Training Style: Strength</training>
+		<wname>Workout Name: Free Weights</wname>
+		<favorite>Favorite: Yes</favorite>
+		<howlong>How Long: 45 minutes</howlong>
+		<timeofday>Preferred Time: Morning</timeofday>
+		<completiondate>Completion Date: 2012-4-26</completiondate>
+		<comments>Self-Motivation: Feel the burn!</comments>
+	</workouts>
+</workoutList>
