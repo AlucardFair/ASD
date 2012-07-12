@@ -79,6 +79,26 @@ $('#home').on('pageinit', function(){
 			}
 		});
 	});
+
+	// Load CSV Data //
+	$('#cButton').on("click", function(){
+	console.log('#cButton');
+		$('#dataView').empty();
+		$.ajax({
+			url: 'data/data.csv',
+			type: 'GET',
+			dataType: 'text',
+			success: function(text){
+				for (var i=0, j=response.workouts.length; i<j; i++){
+
+					).appendTo('#dataView');
+				};
+			},
+			error: function(error){
+				console.log(error);
+			} 
+		});
+	});
 });
 
 // $('#addItem').on('pageinit', function(){
