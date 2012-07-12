@@ -90,7 +90,6 @@ $('#home').on('pageinit', function(){
 			dataType: 'text',
 			success: function(text){
 				
-				};
 			},
 			error: function(error){
 				console.log(error);
