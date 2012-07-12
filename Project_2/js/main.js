@@ -89,9 +89,7 @@ $('#home').on('pageinit', function(){
 			type: 'GET',
 			dataType: 'text',
 			success: function(text){
-				for (var i=0, j=response.workouts.length; i<j; i++){
-
-					).appendTo('#dataView');
+				
 				};
 			},
 			error: function(error){
