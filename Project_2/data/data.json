@@ -1,7 +1,7 @@
 {
     "workouts":[
 	    {	
-	    	"workout": ["Workout 1"],
+	    	"workout": ["JSON Workout 1"],
 	    	"training": ["Training Style: Cardio"],
 	        "wname": ["Workout Name: Running"],
 	        "favorite": ["Favorite: No"],
@@ -12,7 +12,7 @@
 	    },
 
 	    {	
-	    	"workout": ["Workout 2"],
+	    	"workout": ["JSON Workout 2"],
 	    	"training": ["Training Style: Strength"],
 	        "wname": ["Workout Name: Free Weights"],
 	        "favorite": ["Favorite: Yes"],
