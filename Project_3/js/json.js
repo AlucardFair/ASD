@@ -1,10 +1,10 @@
 /*
 Zachery Hernandez
-ASD 1206
-Project 1
-6/29/2012
+ASD 1207
+Project 3
+7/19/2012
 Body Health & Fitness
-https://github.com/AlucardFair/ASD/Project_1
+https://github.com/AlucardFair/ASD/Project_3
 */
 
 /*Dummy Data*/
