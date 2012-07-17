@@ -93,20 +93,21 @@ $('#home').on('pageinit', function(){
 			console.log(text);
 				var lines = text.split("\n");
 				console.log(lines);
-				for (var lineNum = 0; lineNum < lines.length; lineNum++) {
-					var row = lines[lineNum];
-					var columns = row.split(",");
-					console.log(columns);
+				for (var lineNum = 1; lineNum < lines.length; lineNum++) {
+					var row = lines[lineNum].split(",");
+					var columns = text.split(",");
+					console.log("Columsn",columns);
+					console.log("Row",row);
 					$(''+
 							'<div class="workoutData">'+
-								'<h2>'+ columns[0] +'</h2>'+
-								'<p>'+ columns[1] +'</p>'+
-								'<p>'+ columns[2] +'</p>'+
-								'<p>'+ columns[3] +'</p>'+
-								'<p>'+ columns[4] +'</p>'+
-								'<p>'+ columns[5] +'</p>'+
-								'<p>'+ columns[6] +'</p>'+
-								'<p>'+ columns[7] +'</p>'+
+								'<h2>'+ columns[0] + row[0] +'</h2>'+
+								'<p>'+ columns[1] + row[1] +'</p>'+
+								'<p>'+ columns[2] + row[2] +'</p>'+
+								'<p>'+ columns[3] + row[3] +'</p>'+
+								'<p>'+ columns[4] + row[4] +'</p>'+
+								'<p>'+ columns[5] + row[5] +'</p>'+
+								'<p>'+ columns[6] + row[6] +'</p>'+
+								'<p>'+ columns[7] + row[7] +'</p>'+
 							'</div>'
 						).appendTo('#dataView');
 				}
@@ -241,7 +242,7 @@ $(document).ready(function() {
 		makeDiv.setAttribute("id", "items");
 		makeDiv.setAttribute("data-role", "content");
 
-		// var makeList = $(<div id="items" data-role="content"><ul data-role="listview"></ul></div>);
+		// var makeDiv = $(<div id="items" data-role="content"><ul data-role="listview"></ul></div>);
 
 		var makeList = document.createElement('ul');
 		makeList.setAttribute("data-role", "listview");
