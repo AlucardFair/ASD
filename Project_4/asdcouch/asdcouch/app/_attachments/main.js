@@ -1,10 +1,10 @@
 /*
 Zachery Hernandez
 ASD 1207
-Project 3
-7/19/2012
+Project 4
+7/26/2012
 Body Health & Fitness
-https://github.com/AlucardFair/ASD/Project_3
+https://github.com/AlucardFair/ASD/Project_4
 */
 // jQM Form Handler //
 
@@ -162,6 +162,8 @@ $('#home').on('pageinit', function(){
 	
 // });
 $(document).ready(function() {
+// $('#addItem').on('pageinit', function(){
+
 
 	// Variable defaults //
 	var favoriteValue = "No",
@@ -268,57 +270,71 @@ $(document).ready(function() {
 	};
 	
 	// Write Data from Local Storage to Browser //
-	function getData() {
+	function getData(buttonsLi) {
 		// Call Function //
 		toggle("on");
 		if(localStorage.length === 0) {
 			alert("There is no data in Local Storage. \n Default Data was added.");
 			autoFillData();
 		}
-		// Create new page //
-		var makeDiv = document.getElementById('dataList');
-		makeDiv.setAttribute("id", "items");
-		makeDiv.setAttribute("data-role", "content");
-
-		// var makeDiv = $(<div id="items" data-role="content"><ul data-role="listview"></ul></div>);
-
-		var makeList = document.createElement('ul');
-		makeList.setAttribute("data-role", "listview");
-		makeDiv.appendChild(makeList);
-		$('#dataList').append(makeDiv);
-		// Set 'items' display //
-		$('#items').css("display", "block");
-		for(var i=0, j=localStorage.length; i<j; i++) {
-			var makeLi = document.createElement('li');
-			makeLi.style.fontSize = "25px";
-			var buttonsLi = document.createElement('li');
-			makeList.appendChild(makeLi);
+		// Create New View //
+		var localData = ('#dataList');
+		for (var i = 0, j = localStorage.length; i < j; i++) {
+			var makeLi = $('<li></li>').appendTo(localData);
+			// var buttonsLi = $('<a></a>').appendTo(localData);
 			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			// Convert string from local storage into value by JSON.parse //
-			var obj = JSON.parse(value);
-			var makeSubList = document.createElement('ul');
-			makeLi.appendChild(makeSubList);
-			getImage(obj.training[1], makeSubList);
-			for (var x in obj) {
-				var makeSubLi = document.createElement('li');
-				makeSubList.appendChild(makeSubLi);
-				var optSubTxt = obj[x][0]+" "+obj[x][1];
-				makeSubLi.innerHTML = optSubTxt;
-				makeSubList.appendChild(buttonsLi);
-			}
-			makeButtonsLi(localStorage.key(i), buttonsLi);
-		}
+		 	var value = localStorage.getItem(key);
+		 	var obj = JSON.parse(value);
+		 		for(x in obj) {
+		 			$('<p>' + obj[x][0] + " " + obj[x][1] + '</p>').appendTo(makeLi);
+		 		}
+		 		$('#dataList').listview('refresh');
+		 		// makeButtonsLi(localStorage.key(i), buttonsLi);
+		};
+		// Create new page //
+		// var makeDiv = document.getElementById('dataList');
+		// makeDiv.setAttribute("id", "items");
+		// makeDiv.setAttribute("data-role", "content");
+
+		// // var makeDiv = $(<div id="items" data-role="content"><ul data-role="listview"></ul></div>);
+
+		// var makeList = document.createElement('ul');
+		// makeList.setAttribute("data-role", "listview");
+		// makeDiv.appendChild(makeList);
+		// $('#dataList').append(makeDiv);
+		// // Set 'items' display //
+		// $('#items').css("display", "block");
+		// for(var i=0, j=localStorage.length; i<j; i++) {
+		// 	var makeLi = document.createElement('li');
+		// 	makeLi.style.fontSize = "25px";
+		// 	var buttonsLi = document.createElement('li');
+		// 	makeList.appendChild(makeLi);
+		// 	var key = localStorage.key(i);
+		// 	var value = localStorage.getItem(key);
+		// 	// Convert string from local storage into value by JSON.parse //
+		// 	var obj = JSON.parse(value);
+		// 	var makeSubList = document.createElement('ul');
+		// 	makeLi.appendChild(makeSubList);
+		// 	getImage(obj.training[1], makeSubList);
+		// 	for (var x in obj) {
+		// 		var makeSubLi = document.createElement('li');
+		// 		makeSubList.appendChild(makeSubLi);
+		// 		var optSubTxt = obj[x][0]+" "+obj[x][1];
+		// 		makeSubLi.innerHTML = optSubTxt;
+		// 		makeSubList.appendChild(buttonsLi);
+		// 	}
+		// 	makeButtonsLi(localStorage.key(i), buttonsLi);
+		// }
 	};
 	
 	// Get an image for the right category //
 	function getImage(imgName, makeSubList) {
-		var imageLi = document.createElement('li');
-		makeSubList.appendChild(imageLi);
-		var newImage = document.createElement('img');
-		var setSrc = newImage.setAttribute("src", "images/" + imgName + ".png");
-		newImage.style.paddingTop = "10px";
-		imageLi.appendChild(newImage);
+		var imageLi = $('<li></li>');
+		$('makeSubList').append(imageLi);
+		var newImage = $('<img>');
+		var setSrc = newImage.attr("src", imgName + ".png");
+		// newImage.style.paddingTop = "10px";
+		$('imageLi').append(newImage);
 	};
 	
 	// Auto populate local storage //
@@ -335,25 +351,25 @@ $(document).ready(function() {
 	// Create edit and delete buttons for each stored item when displayed //
 	function makeButtonsLi(key, buttonsLi) {
 		// Add edit single item button //
-		var editButton = document.createElement('a');
-		editButton.setAttribute("id", "editButton");
-		editButton.href = "#";	
+		var editButton = $('<a href="#">' + "Edit Workout" + '</a>').appendTo(buttonsLi);
+		// $('editButton').attr("id", "editButton");
+		// $('editButton').href = "#";
 		editButton.key = key;
-		var editTxt = "Edit Workout";
-		editButton.addEventListener("click", editItem);
-		editButton.innerHTML = editTxt;
-		buttonsLi.appendChild(editButton);
+		// var editTxt = "Edit Workout";
+		$('editButton').on("click", editItem);
+		// $('editButton').html = editTxt;
+		// $('buttonsLi').append(editButton);
 		//  Create Break Between Buttons //
-		var breakTag = document.createElement('br');
-		buttonsLi.appendChild(breakTag);
-		var deleteButton = document.createElement('a');
-		deleteButton.setAttribute("id", "deleteButton");
-		deleteButton.href = "#";
-		deleteButton.key = key;
-		var deleteTxt = "Delete Workout";
-		deleteButton.addEventListener("click", deleteItem);
-		deleteButton.innerHTML = deleteTxt;
-		buttonsLi.appendChild(deleteButton);
+		var breakTag = $('<br>').appendTo(buttonsLi);
+		// $('buttonsLi').append(breakTag);
+		var deleteButton = $('<a href="#">' + "Delete Workout" + '</a>').appendTo(buttonsLi);
+		// $('deleteButton').attr("id", "deleteButton");
+		// $('deleteButton').href = "#";
+		$('deleteButton').key = key;
+		// var deleteTxt = "Delete Workout";
+		$('deleteButton').on("click", deleteItem);
+		// $('deleteButton').html = deleteTxt;
+		// $('buttonsLi').append(deleteButton);
 	};
 	
 	function editItem(key) {
