@@ -270,7 +270,7 @@ $(document).ready(function() {
 	};
 	
 	// Write Data from Local Storage to Browser //
-	function getData(buttonsLi) {
+	function getData() {
 		// Call Function //
 		toggle("on");
 		if(localStorage.length === 0) {
@@ -281,15 +281,15 @@ $(document).ready(function() {
 		var localData = ('#dataList');
 		for (var i = 0, j = localStorage.length; i < j; i++) {
 			var makeLi = $('<li></li>').appendTo(localData);
-			// var buttonsLi = $('<a></a>').appendTo(localData);
+			var buttonsLi = $('<li></li>').appendTo(localData);
 			var key = localStorage.key(i);
 		 	var value = localStorage.getItem(key);
 		 	var obj = JSON.parse(value);
 		 		for(x in obj) {
 		 			$('<p>' + obj[x][0] + " " + obj[x][1] + '</p>').appendTo(makeLi);
 		 		}
+		 		makeButtonsLi(localStorage.key(i), buttonsLi);
 		 		$('#dataList').listview('refresh');
-		 		// makeButtonsLi(localStorage.key(i), buttonsLi);
 		};
 		// Create new page //
 		// var makeDiv = document.getElementById('dataList');
@@ -351,24 +351,26 @@ $(document).ready(function() {
 	// Create edit and delete buttons for each stored item when displayed //
 	function makeButtonsLi(key, buttonsLi) {
 		// Add edit single item button //
-		var editButton = $('<a href="#">' + "Edit Workout" + '</a>').appendTo(buttonsLi);
+		var editButton = $('<a href="#" data-role="button data-mini="true" data-inline="true">Edit Workout</a>');
 		// $('editButton').attr("id", "editButton");
 		// $('editButton').href = "#";
-		editButton.key = key;
+		$(editButton).key = key;
 		// var editTxt = "Edit Workout";
-		$('editButton').on("click", editItem);
+		$(editButton).on("click", editItem);
 		// $('editButton').html = editTxt;
+		$(buttonsLi).append(editButton);
 		// $('buttonsLi').append(editButton);
 		//  Create Break Between Buttons //
-		var breakTag = $('<br>').appendTo(buttonsLi);
+		// var breakTag = $('<br>').appendTo(buttonsLi);
 		// $('buttonsLi').append(breakTag);
-		var deleteButton = $('<a href="#">' + "Delete Workout" + '</a>').appendTo(buttonsLi);
+		var deleteButton = $('<a href="#" data-mini="true" data-inline="true" data-icon="delete"></a>').appendTo(buttonsLi);
 		// $('deleteButton').attr("id", "deleteButton");
 		// $('deleteButton').href = "#";
-		$('deleteButton').key = key;
+		$(deleteButton).key = key;
 		// var deleteTxt = "Delete Workout";
-		$('deleteButton').on("click", deleteItem);
+		$(deleteButton).on("click", deleteItem);
 		// $('deleteButton').html = deleteTxt;
+		$(buttonsLi).append(deleteButton);
 		// $('buttonsLi').append(deleteButton);
 	};
 	
