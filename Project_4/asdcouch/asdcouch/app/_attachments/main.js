@@ -177,6 +177,55 @@ $('#serverData').on('pageinit', function() {
     });
 });
 
+var urlVars = function() {
+	var urlData = $($.mobile.activePage).data("url");
+	var urlParts = urlData.split('?');
+	var urlPairs = urlParts[1].split('&');
+	var urlValues = {};
+	for (var pair in urlPairs) {
+		var keyValue = urlPairs[pair].split('=');
+		var key = decodeURIComponent(keyValue[0]);
+		var value = decodeURIComponent(keyValue[1]);
+		urlValues[key] = value;
+	}
+	return urlValues;
+};
+
+$('#workoutData').live('pageshow', function() {
+	var workouts = urlVars();
+	console.log(workouts);
+	$.couch.db("asdproject").view("app/workouts", {
+		success: function(data) {
+			$('#workoutData').empty();
+			$.each(data.rows, function(index, info) {
+    			var id = info.value._id;
+    			var rev = info.value._rev;
+    			var training = info.value.training;
+    			var wname = info.value.wname;
+    			var favorite = info.value.favorite;
+    			var howlong = info.value.howlong;
+    			var timeofday = info.value.timeofday;
+    			var completiondate = info.value.completiondate;
+    			var comments = info.value.comments;
+    				$('#workouData').append(
+    					$('<li>').append(
+    						($('<h2>').text(wname))
+    							.append($('<p>').text(training))
+    							.append($('<p>').text(favorite))
+    							.append($('<p>').text(howlong))
+    							.append($('<p>').text(timeofday))
+    							.append($('<p>').text(completiondate))
+    							.append($('<p>').text(comments))
+    					)
+    				);
+    			
+    			
+    		});
+    		$('#serverItems').listview('refresh');
+		}
+	});
+});
+
 
 
 $(document).ready(function() {
