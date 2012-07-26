@@ -157,10 +157,26 @@ $('#home').on('pageinit', function(){
 	});
 });
 
-// $('#addItem').on('pageinit', function(){
+$('#serverData').on('pageinit', function() {
+    $.couch.db("asdproject").view("app/workouts", {
+    	success: function(data) {
+    	console.log(data);
+    		$('#workoutItems').empty();
+    		$.each(data.rows, function(index, value) {
+    			var item = (value.value || value.doc);
+    			$('#workoutItems').append(
+    				$('<li>').append(
+    					$('<a>')
+    						.attr("href", "workouts.html?workouts=" + item.wname)
+    						.text(item.wname)
+    				)
+    			);
+    		});
+    		$('#workoutItems').listview('refresh');
+    	}
+    });
+});
 
-	
-// });
 $(document).ready(function() {
 // $('#addItem').on('pageinit', function(){
 

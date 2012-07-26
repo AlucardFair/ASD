@@ -82,6 +82,10 @@
 				
 			<!-- </div> -->
 
+			<!-- Display Server Data -->
+			<div>
+				<a href="#serverData" data-role="button" id="showData" data-inset="true" data-mini="true" data-theme="b" class="secondaryColor">Display Server Data</a>
+			</div>
 			<!-- News Stream -->
 			<div>
 				<a href="#news"data-role="button" class="secondaryColor" >Fitness News</a>
@@ -255,13 +259,13 @@
 				<div class="ui-grid-a">
 					<center>
 						<div class="ui-block-a">
-							<a href="#" data-role="button" id="showData" data-inset="true" data-mini="true" data-theme="b" class="secondaryColor">Display Data</a>
+							<a href="#" data-role="button" id="showData" data-inset="true" data-mini="true" data-theme="b" class="secondaryColor">Display Local</a>
 						</div>
 					</center>
 
 					<center>
 						<div class="ui-block-b">
-							<a href="#" data-role="button" id="clearData" data-set="true" data-mini="true" data-theme="b" class="secondaryColor">Clear Stored Data</a>
+							<a href="#" data-role="button" id="clearData" data-set="true" data-mini="true" data-theme="b" class="secondaryColor">Clear Local</a>
 						</div>
 					</center>
 				</div>
@@ -333,12 +337,15 @@
 
 
 				<!-- Submit(Save) and Reset -->
-				<div class="ui-grid-a">
+				<div class="ui-grid-b">
 					<div class="ui-block-a">
-						<input href="#" type="submit" name="save" id="saveData" value="Save!" data-icon="check" data-iconpos="left" data-theme="b" />
+						<a href="#" data-role="button" id="saveServer" data-inset="true" data-mini="true" data-theme="b" class="secondaryColor">Save to Server</a>
 					</div>
 					<div class="ui-block-b">
-						<input type="reset" name="reset" id="reset" value="Reset" data-theme="d" />
+						<input href="#" type="submit" name="save" id="saveData" value="Save!" data-icon="check" data-iconpos="left" data-inset="true" data-mini="true" data-theme="b" />
+					</div>
+					<div class="ui-block-c">
+						<input type="reset" name="reset" id="reset" value="Reset" data-theme="d" data-mini="true" data-inset="true" />
 					</div>
 				</div>
 
@@ -366,6 +373,61 @@
 			</div>
 		</div>
 
+	</div>
+
+	<!-- Start of Server Data Page -->
+	<div data-role="page" id="serverData">
+	
+		<!-- Header -->
+		<div data-role="header" data-position="fixed" class="mainColor">
+			<a href="#" id="addBack" data-icon="arrow-l" data-rel="back" data-direction="reverse" class="secondaryColor">Back</a>
+			<div>
+				<a href="#home">
+					<center>
+						<img src="BHF_Branding.png" alt="Body Health & Fitness" class="branding" />
+					</center>
+				</a>
+			</div>
+		</div>
+		
+		<!-- Server Data Content -->
+		<div data-role="content">
+
+			<!-- Server Data Views -->
+			<div class="ui-grid-a">
+				<center>
+					<div class="ui-block-a">
+						<a href="#addItem" data-role="button" data-inset="true" data-mini="true" class="secondaryColor">Start New</a>
+					</div>
+				</center>
+
+				<center>
+					<div class="ui-block-b">
+						<a href="#" id="#" data-role="button" data-inset="true" data-mini="true" class="secondaryColor">Delete All Server</a>
+					</div>
+				</center>
+			</div>
+
+		</div>
+
+		<div data-role="fielddcontain">
+			<ul id="workoutItems" data-role="listview">
+				
+			</ul>
+		</div>
+		
+		<!-- Footer -->
+		<div data-role="footer" data-position="fixed">
+			<!-- Navbar -->
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-iconpos="left" class="mainColor">Home</a></li>
+					<li><a href="#about" data-icon="info" data-iconpos="left" class="mainColor">About</a></li>
+					<li><a href="#otherApp"data-icon="check" data-iconpos="left" class="mainColor">Other App</a></li>
+				</ul>
+			</div>
+		</div>
+		
 	</div>
 	
 	<!-- Start of About Page -->
