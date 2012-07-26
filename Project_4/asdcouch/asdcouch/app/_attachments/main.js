@@ -161,10 +161,10 @@ $('#serverData').on('pageinit', function() {
     $.couch.db("asdproject").view("app/workouts", {
     	success: function(data) {
     	console.log(data);
-    		$('#workoutItems').empty();
+    		$('#serverItems').empty();
     		$.each(data.rows, function(index, value) {
     			var item = (value.value || value.doc);
-    			$('#workoutItems').append(
+    			$('#serverItems').append(
     				$('<li>').append(
     					$('<a>')
     						.attr("href", "workouts.html?workouts=" + item.wname)
@@ -172,10 +172,12 @@ $('#serverData').on('pageinit', function() {
     				)
     			);
     		});
-    		$('#workoutItems').listview('refresh');
+    		$('#serverItems').listview('refresh');
     	}
     });
 });
+
+
 
 $(document).ready(function() {
 // $('#addItem').on('pageinit', function(){
