@@ -168,6 +168,7 @@ $('#serverData').on('pageinit', function() {
     				$('<li>').append(
     					$('<a>')
     						.attr("href", "workouts.html?workouts=" + item.wname)
+    						.attr("data-rel", "dialog")
     						.text(item.wname)
     				)
     			);
@@ -191,12 +192,25 @@ var urlVars = function() {
 	return urlValues;
 };
 
+// Make Buttons for Server Data//
+// Create edit and delete buttons for each stored item when displayed //
+function createButtonsLi(key, serverButtonsLi) {
+	// Add edit single item button //
+	var editButton = $('<a href="#" data-role="button data-mini="true" data-inline="true">Edit Workout</a>');
+	$(editButton).key = key;
+	//$(editButton).on("click", editServerItem);
+	$(serverButtonsLi).append(editButton);
+	var deleteButton = $('<a href="#" data-mini="true" data-inline="true" data-icon="delete"></a>');
+	$(deleteButton).key = key;
+	//$(deleteButton).on("click", deleteServerItem);
+	$(serverButtonsLi).append(deleteButton);
+};
+
 $('#workoutData').live('pageshow', function() {
-	var workouts = urlVars();
-	console.log(workouts);
+	var info = urlVars();
 	$.couch.db("asdproject").view("app/workouts", {
 		success: function(data) {
-			$('#workoutData').empty();
+			$('#workoutDetails').empty();
 			$.each(data.rows, function(index, info) {
     			var id = info.value._id;
     			var rev = info.value._rev;
@@ -207,21 +221,20 @@ $('#workoutData').live('pageshow', function() {
     			var timeofday = info.value.timeofday;
     			var completiondate = info.value.completiondate;
     			var comments = info.value.comments;
-    				$('#workouData').append(
-    					$('<li>').append(
-    						($('<h2>').text(wname))
-    							.append($('<p>').text(training))
-    							.append($('<p>').text(favorite))
-    							.append($('<p>').text(howlong))
-    							.append($('<p>').text(timeofday))
-    							.append($('<p>').text(completiondate))
-    							.append($('<p>').text(comments))
-    					)
+    				$('#workoutDetails').append(
+    					$('<li>')
+    						.append($('<p>').text(wname))
+    						.append($('<p>').text(training))
+    						.append($('<p>').text(favorite))
+    						.append($('<p>').text(howlong))
+    						.append($('<p>').text(timeofday))
+    						.append($('<p>').text(completiondate))
+    						.append($('<p>').text(comments))
     				);
-    			
-    			
+    			var serverButtonsLi = $('<li></li>').appendTo('#workoutDetails');
+    		createButtonsLi(id, serverButtonsLi);
     		});
-    		$('#serverItems').listview('refresh');
+    		$('#workoutDetails').listview('refresh');
 		}
 	});
 });
